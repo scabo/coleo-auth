@@ -1,0 +1,38 @@
+{
+    "name": "scabo/coleo-auth",
+    "version": "0.0.1",
+    "authors": [
+        {
+            "name": "Sergey Shevyakov",
+            "email": "scabo.dev@gmail.com"
+        }
+    ],
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.4",
+        "firebase/php-jwt": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.2",
+        "phpstan/phpstan": "^2.1",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit  --display-warnings",
+        "inspect": "vendor/bin/phpstan analyse",
+        "style_check": "vendor/bin/phpcs",
+        "style_fix": "vendor/bin/phpcbf"
+    },
+    "autoload": {
+        "psr-4": {
+            "Coleo\\Auth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ColeoTest\\Auth\\": "tests/"
+        }
+    }
+}
