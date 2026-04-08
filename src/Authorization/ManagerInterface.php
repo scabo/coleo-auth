@@ -17,7 +17,8 @@ interface ManagerInterface
      *
      * @param string $role The role name
      * @param string $resource The resource name
-     * @return array An associative array where keys are permission names and values are boolean flags indicating whether the role has that permission
+     * @return array An associative array where keys are permission names and values are boolean
+     *  flags indicating whether the role has that permission
      */
     public function getPermissions(string $role, string $resource): array;
 
@@ -25,7 +26,8 @@ interface ManagerInterface
      * Returns all possible permissions that can be associated with the given resource.
      *
      * @param string $resource The resource name
-     * @return array An associative array where keys are permission names and values are boolean flags indicating whether the role has that permission
+     * @return array An associative array where keys are permission names and values are boolean
+     *  flags indicating whether the role has that permission
      */
     public function getResourcePermissions(string $resource): array;
 }

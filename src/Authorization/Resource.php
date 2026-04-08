@@ -35,7 +35,7 @@ class Resource implements ResourceInterface
     * @param string|array $roles A single role or an array of roles to check
     * @param string|array $permissions A single permission or an array of permissions to check
     * @return bool True if at least one of the roles has all the required permissions, false otherwise
-    * @throws InvalidArgumentException If any of the permissions are invalid for this resource
+    * @throws \InvalidArgumentException If any of the permissions are invalid for this resource
     */
     public function allowed(string|array $roles, string|array $permissions): bool
     {
@@ -71,7 +71,7 @@ class Resource implements ResourceInterface
     * @param string|array $roles A single role or an array of roles to check
     * @param string|array $permissions A single permission or an array of permissions to check
     * @return bool True if none of the roles have all the required permissions, false otherwise
-    * @throws InvalidArgumentException If any of the permissions are invalid for this resource (from allowed())
+    * @throws \InvalidArgumentException If any of the permissions are invalid for this resource (from allowed())
     */
     public function denied(string|array $roles, string|array $permissions): bool
     {

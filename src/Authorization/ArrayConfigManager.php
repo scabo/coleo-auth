@@ -21,7 +21,7 @@ class ArrayConfigManager implements ManagerInterface
      *
      * @param string $configPath The path to the configuration file.
      */
-    public function __construct(private string $configPath)
+    public function __construct(string $configPath)
     {
         if (!file_exists($configPath) || !is_file($configPath)) {
             throw new RuntimeException("Configuration file {$configPath} does not exist.");
@@ -29,16 +29,16 @@ class ArrayConfigManager implements ManagerInterface
 
         $this->config = require $configPath;
         if (
-            !is_array($this->config) 
-            || !isset($this->config['resources']) 
-            || !is_array($this->config['resources']) 
-            || !isset($this->config['roles']) 
-            || !is_array($this->config['roles'])) {
+            !is_array($this->config)
+            || !isset($this->config['resources'])
+            || !is_array($this->config['resources'])
+            || !isset($this->config['roles'])
+            || !is_array($this->config['roles'])
+        ) {
             throw new RuntimeException("Failed to parse configuration file: format does not match expected schema.");
         }
-
     }
-    
+
     /**
      * Returns the resources.
      *
@@ -58,7 +58,7 @@ class ArrayConfigManager implements ManagerInterface
     {
         return $this->config['roles'];
     }
-    
+
     /**
      * Retrieves a resource by its name.
      *
@@ -70,10 +70,10 @@ class ArrayConfigManager implements ManagerInterface
         if (isset($this->config["resources"][$resource])) {
             return new Resource($resource, $this);
         }
-        
+
         return null;
     }
-    
+
 
     /**
      * Retrieves permissions for a role and resource.
@@ -83,14 +83,14 @@ class ArrayConfigManager implements ManagerInterface
      * @return array An array of permissions associated with the role and resource.
      */
     public function getPermissions(string $role, string $resource): array
-    {       
+    {
         if (isset($this->config["roles"][$role][$resource])) {
             return $this->config["roles"][$role][$resource];
         }
-        
+
         return [];
     }
-   
+
     /**
      * Retrieves all permissions for a resource.
      *
@@ -102,7 +102,7 @@ class ArrayConfigManager implements ManagerInterface
         if (isset($this->config["resources"][$resource])) {
             return $this->config["resources"][$resource];
         }
-        
+
         return [];
     }
 }
