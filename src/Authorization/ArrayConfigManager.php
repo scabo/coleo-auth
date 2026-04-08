@@ -4,10 +4,23 @@ namespace Coleo\Auth\Authorization;
 
 use RuntimeException;
 
+/**
+ * Class ArrayConfigManager
+ *
+ * Manages authorization configuration using an array.
+ */
 class ArrayConfigManager implements ManagerInterface
 {
+    /**
+     * @var array The configuration data.
+     */
     private $config = [];
 
+    /**
+     * Constructs the ArrayConfigManager with a configuration file path.
+     *
+     * @param string $configPath The path to the configuration file.
+     */
     public function __construct(private string $configPath)
     {
         if (!file_exists($configPath) || !is_file($configPath)) {
@@ -45,6 +58,13 @@ class ArrayConfigManager implements ManagerInterface
     {
         return $this->config['roles'];
     }
+    
+    /**
+     * Retrieves a resource by its name.
+     *
+     * @param string $resource The name of the resource.
+     * @return ResourceInterface|null The resource object, or null if not found.
+     */
     public function getResource(string $resource): ResourceInterface|null
     {
         if (isset($this->config["resources"][$resource])) {
@@ -55,6 +75,13 @@ class ArrayConfigManager implements ManagerInterface
     }
     
 
+    /**
+     * Retrieves permissions for a role and resource.
+     *
+     * @param string $role The name of the role.
+     * @param string $resource The name of the resource.
+     * @return array An array of permissions associated with the role and resource.
+     */
     public function getPermissions(string $role, string $resource): array
     {       
         if (isset($this->config["roles"][$role][$resource])) {
@@ -65,10 +92,10 @@ class ArrayConfigManager implements ManagerInterface
     }
    
     /**
-     * Undocumented function
+     * Retrieves all permissions for a resource.
      *
-     * @param string $resource
-     * @return array
+     * @param string $resource The name of the resource.
+     * @return array An array of permissions associated with the resource.
      */
     public function getResourcePermissions(string $resource): array
     {
