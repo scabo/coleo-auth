@@ -1,4 +1,10 @@
+<?php
+
+namespace Coleo\Auth;
+
 interface AuthContainerInterface
 {
-    public function getAuth(): AuthInterface;
+    public function store($data);
+    public function retrive();
+    public function clear();
 }
