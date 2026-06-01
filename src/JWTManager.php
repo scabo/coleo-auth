@@ -85,7 +85,7 @@ class JWTManager implements JWTManagerInterface
         $decoded = $this->verify($token);
         if ($decoded) {
             unset($decoded->exp); // Remove expiration time to create a new token
-            return JWT::encode($decoded, $this->secretKey, $this->algorithm);
+            return JWT::encode((array) $decoded, $this->secretKey, $this->algorithm);
         }
         return false;
     }
