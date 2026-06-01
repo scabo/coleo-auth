@@ -13,7 +13,7 @@ class JWTManagerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->jwtManager = new JWTManager('your_secret_key');
+        $this->jwtManager = new JWTManager('MNRLKZetDMFeJ4rHQHfwjsqcLJqtiOa9MJbaaytCWQo=');
     }
 
     public function testIssueToken()
