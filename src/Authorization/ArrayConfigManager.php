@@ -80,7 +80,7 @@ class ArrayConfigManager implements ManagerInterface
      *
      * @param string $role The name of the role.
      * @param string $resource The name of the resource.
-     * @return array An array of permissions associated with the role and resource.
+     * @return array An ar ay of permissions associated with the role and resource.
      */
     public function getPermissions(string $role, string $resource): array
     {

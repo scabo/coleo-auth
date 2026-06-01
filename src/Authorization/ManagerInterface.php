@@ -23,6 +23,13 @@ interface ManagerInterface
     public function getPermissions(string $role, string $resource): array;
 
     /**
+     * Returns all possible roles
+     * 
+     * @return array
+     */
+    public function getRoles(): array;
+
+    /**
      * Returns all possible permissions that can be associated with the given resource.
      *
      * @param string $resource The resource name

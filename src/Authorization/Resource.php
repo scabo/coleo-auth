@@ -39,11 +39,11 @@ class Resource implements ResourceInterface
     */
     public function allowed(string|array $roles, string|array $permissions): bool
     {
-        if (is_string($roles)) {
+        if (\is_string($roles)) {
             $roles = [$roles];
         }
 
-        if (is_string($permissions)) {
+        if (\is_string($permissions)) {
             $permissions = [$permissions];
         }
 
