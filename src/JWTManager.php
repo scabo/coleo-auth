@@ -21,7 +21,7 @@ class JWTManager implements JWTManagerInterface
         return JWT::encode($payload, $this->secretKey, $this->algorithm);
     }
 
-    public function verify(string $token): array|bool
+    public function verify(string $token): object|bool
     {
         try {
             return JWT::decode($token, new Key($this->secretKey, $this->algorithm));
