@@ -1,5 +1,10 @@
 <?php
 
+namespace Coleo\Auth;
+
+/**
+ * Class to check access based on roles and permissions.
+ */
 class AccessCheck
 {
     /**

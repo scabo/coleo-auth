@@ -1,5 +1,7 @@
 <?php
 
+namespace Coleo\Auth;
+
 /**
  * Interface for creating Resource instances.
  */

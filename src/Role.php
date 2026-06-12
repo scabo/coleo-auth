@@ -1,9 +1,14 @@
 <?php
 
+namespace Coleo\Auth;
+
+/**
+ * Represents a role with a name and associated permissions for resources.
+ */
 final class Role
 {
     /**
-     * Represents a role with a name and associated permissions for resources.
+     * Creates a new Role instance.
      *
      * @param string $name The name of the role.
      */

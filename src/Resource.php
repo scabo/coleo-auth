@@ -1,9 +1,14 @@
 <?php
 
+namespace Coleo\Auth;
+
+/**
+ * Represents a resource with a name and associated permissions.
+ */
 final class Resource
 {
     /**
-     * Represents a resource with a name and associated permissions.
+     * Creates a new Resource instance.
      *
      * @param string $name The name of the resource.
      * @param array $permissions An array of acceptable permissions for this resource.

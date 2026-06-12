@@ -1,5 +1,10 @@
 <?php
 
+namespace Coleo\Auth;
+
+/**
+ * Factory for creating Resource instances based on an array configuration.
+ */
 class ArrayResourceFactory implements ResourceFactoryInterface
 {
     /**

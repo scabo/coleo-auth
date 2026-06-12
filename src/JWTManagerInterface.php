@@ -3,7 +3,7 @@
 namespace Coleo\Auth;
 
 /**
- * JWTManagerInterface defines methods for managing JSON Web Tokens (JWTs).
+ * Interface for managing JSON Web Tokens (JWTs).
  */
 interface JWTManagerInterface
 {

@@ -1,5 +1,10 @@
 <?php
 
+namespace Coleo\Auth;
+
+/**
+ * Factory for creating Role instances based on an array configuration.
+ */
 class ArrayRoleFactory implements RoleFactoryInterface
 {
     /**
