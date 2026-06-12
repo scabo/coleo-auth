@@ -26,15 +26,22 @@ class ArrayRoleFactory implements RoleFactoryInterface
      */
     public function getRole(string $name): ?Role
     {
-        if (isset($this->roleMap[$name]) && is_string($this->roleMap[$name])) {
+        if (isset($this->roleMap[$name]) && is_array($this->roleMap[$name])) {
             $role = new Role($name);
             foreach ($this->roleMap[$name] as $resourceName => $rolePermissions) {
                 $resource = $this->resourceFactory->getResource($resourceName);
-                if (empty(array_diff($resource->getAcceptablePermissions(), $rolePermissions))) {
+                if ($resource === null) {
+                    throw new \InvalidArgumentException("Resource '$resourceName' not found.");
+                }
+                $acceptablePermissions = $resource->getAcceptablePermissions();
+                if (empty(array_diff($rolePermissions, $acceptablePermissions))) {
                     $role->addPermissions($resource, $rolePermissions);
+                } else {
+                    throw new \InvalidArgumentException("Role permissions are not a subset of acceptable permissions for resource '$resourceName'.");
                 }
             }
             return $role;
         }
+        return null;
     }
 }
