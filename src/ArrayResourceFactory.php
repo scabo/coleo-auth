@@ -37,5 +37,6 @@ class ArrayResourceFactory implements ResourceFactoryInterface
         if (isset($this->resourceMap[$name])) {
             return new Resource($name, $this->resourceMap[$name]);
         }
+        return null;
     }
 }

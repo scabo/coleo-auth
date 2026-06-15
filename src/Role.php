@@ -28,13 +28,13 @@ final class Role
     }
 
     /**
-     * Adds permissions for a specific resource to this role.
+     * Set permissions for a specific resource to this role.
      *
      * @param Resource $resource The resource to add permissions for.
      * @param array $permissions An array of permissions to add for the resource.
      * @return self Returns the current Role instance.
      */
-    public function addPermissions(Resource $resource, array $permissions): self
+    public function setPermissions(Resource $resource, array $permissions): self
     {
         $this->permissionMap[$resource->getName()] = $permissions;        
         return $this;

@@ -22,6 +22,7 @@ class AccessCheck
         }
 
         $permissions = $this->filterPermission($permissions);
+
         if (!$this->isSubsetOf($resource->getAcceptablePermissions(), $permissions)) {
             throw new \InvalidArgumentException("Passed permissions are incorrect", 1);
         }
@@ -58,6 +59,6 @@ class AccessCheck
      */
     private function isSubsetOf(array $set, array $subset): bool
     {
-        return empty(array_diff($set, $subset));
+        return empty(array_diff($subset, $set));
     }
 }

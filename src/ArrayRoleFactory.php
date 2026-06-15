@@ -40,7 +40,7 @@ class ArrayRoleFactory implements RoleFactoryInterface
                 }
                 $acceptablePermissions = $resource->getAcceptablePermissions();
                 if (empty(array_diff($rolePermissions, $acceptablePermissions))) {
-                    $role->addPermissions($resource, $rolePermissions);
+                    $role->setPermissions($resource, $rolePermissions);
                 } else {
                     throw new \InvalidArgumentException("Role permissions are not a subset of acceptable permissions for resource '$resourceName'.");
                 }
